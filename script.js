@@ -1,40 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. DSO Visualization Chart
-    const ctx = document.getElementById('dsoChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['TSMC', 'AMD', 'Intel', 'NVDA Target', 'NVDA Actual 2025'],
-            datasets: [{
-                label: 'DSO (Days)',
-                data: [35, 42, 38, 40, 53.3],
-                backgroundColor: ['#333', '#333', '#333', '#555', '#ff3b3b'],
-                borderRadius: 4
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
-                x: { grid: { display: false } }
-            },
-            plugins: { legend: { display: false } }
+    // 1. Typewriter Effect for Hero
+    const heroTitle = document.querySelector('.glitch');
+    const text = heroTitle.innerText;
+    heroTitle.innerText = '';
+    
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            heroTitle.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+    typeWriter();
+
+    // 2. Live "Loop Risk" Counter
+    const stats = document.querySelectorAll('.value');
+    stats.forEach(stat => {
+        if (stat.innerText.includes('$')) {
+            let value = parseFloat(stat.innerText.replace('$', '').replace('T', '').replace('B', ''));
+            setInterval(() => {
+                // Simulate market volatility
+                let jitter = (Math.random() - 0.5) * 0.01;
+                value += jitter;
+                stat.innerText = `$${value.toFixed(2)}${stat.innerText.includes('T') ? 'T' : 'B'}`;
+            }, 2000);
         }
     });
 
-    // 2. Form Submission Simulation
-    const form = document.getElementById('whistle-form');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('.submit-btn');
-        btn.innerText = "TRANSMITTING...";
-        btn.style.opacity = "0.7";
+    // 3. SEC "Intercept" Animation on Scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
 
-        setTimeout(() => {
-            alert("EVIDENCE SECURED. Secure hash generated. Routing to SEC task force.");
-            btn.innerText = "TRANSMISSION COMPLETE";
-            btn.style.background = "#22c55e";
-            form.reset();
-        }, 2000);
+    document.querySelectorAll('.glass-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease-out';
+        observer.observe(card);
     });
 });
