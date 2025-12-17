@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SILICON LOOP | Global Investigative Dossier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="scanner-line"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content container">
+            <span class="logo">SILICON<span class="highlight">LOOP</span></span>
+            <div class="nav-links">
+                <a href="#editorial">The Loop</a>
+                <a href="#locker">Evidence</a>
+                <a href="#whistleblower" class="btn-alert">Report Fraud</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section container">
+        <div class="status-badge mono">CASE ID: #2025-AI-0992 // CLASSIFIED</div>
+        <h1 class="glitch" data-text="THE SILICON LOOP">THE SILICON LOOP</h1>
+        <p class="subtitle">Exposing the $1.4 Trillion Circular Economy of AI.</p>
+
+        <div class="hero-stats">
+            <div class="stat-card">
+                <span class="label">Nvidia Market Cap</span>
+                <span class="value text-red">$5.2T</span>
+            </div>
+            <div class="stat-card">
+                <span class="label">OpenAI Commitments</span>
+                <span class="value text-red">$1.4T</span>
+            </div>
+            <div class="stat-card">
+                <span class="label">Native AI Revenue</span>
+                <span class="value">$50B</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="editorial" class="glass-card">
+            <h2 class="section-title">The "Round-Trip" Scandal</h2>
+            <p>The AI boom of 2025 is powered by <strong>circular financing</strong>. We've identified a feedback loop where trillion-dollar titans finance their own growth through secretive vendor agreements.</p>
+        </section>
+
+        <section id="locker" class="evidence-grid">
+            <div class="glass-card">
+                <h3 class="mono text-red">DSO ANOMALY</h3>
+                <p>Nvidia’s Days Sales Outstanding (DSO) surged to <strong>53.3 days</strong> in Q3 2025. This signals "channel stuffing"—shipping hardware to startups who can't yet pay.</p>
+                <div class="chart-wrapper">
+                    <canvas id="dsoChart"></canvas>
+                </div>
+            </div>
+            <div class="glass-card">
+                <h3 class="mono text-red">EQUITY METHOD TRAP</h3>
+                <p>Microsoft records OpenAI's massive losses as equity adjustments, then masks the impact by booking OpenAI's cloud spend as revenue.</p>
+            </div>
+        </section>
+
+        <section id="whistleblower" class="glass-card alert-bg">
+            <h2 class="section-title text-center">Whistleblower Portal</h2>
+            <p class="mono text-sm text-center mb-6 text-red-light">Connection Secured // AES-256 Encryption Active</p>
+            <form id="whistle-form" class="modern-form">
+                <input type="text" placeholder="Department / Organization" required>
+                <textarea placeholder="Describe the circular transaction..." rows="4" required></textarea>
+                <button type="submit" class="submit-btn">Transmit Evidence</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="container mono">
+        <p>&copy; 2025 THE SILICON LOOP // INVESTIGATIVE DOSSIER // DECLASSIFIED</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
